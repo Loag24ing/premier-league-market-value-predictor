@@ -1,8 +1,12 @@
 # Premier League Player Market Value Predictor
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?logo=streamlit&logoColor=white)](https://premier-league-market-value-predictor-2kpxe2jpyicsfwlepdiak9.streamlit.app/)
+
 A machine learning project that estimates Premier League player market values from performance, age, playing time, and position-specific football metrics.
 
 The project uses six Premier League seasons, from **2020–21 through 2025–26**, combines player performance data with Transfermarkt-derived market valuations, engineers role-specific features, and compares multiple regression approaches before selecting a final hybrid XGBoost architecture.
+
+**Live app:** https://premier-league-market-value-predictor-2kpxe2jpyicsfwlepdiak9.streamlit.app/
 
 ---
 
@@ -20,12 +24,16 @@ The modelling pipeline was designed to avoid relying on a single season or a ran
 
 ## Interactive Streamlit App
 
-The repository includes a Streamlit application in `app.py` that loads the final trained models and provides an interactive market-value estimator.
+The project includes a deployed Streamlit application in `app.py` that loads the final trained models and provides an interactive market-value estimator.
+
+### [Open the live Streamlit app](https://premier-league-market-value-predictor-2kpxe2jpyicsfwlepdiak9.streamlit.app/)
 
 The app routes predictions through the same final hybrid architecture used in the project:
 
 - **Defenders:** defender-specific XGBoost model
 - **Forwards, midfielders and goalkeepers:** global XGBoost model
+
+The interface accepts season-level player inputs and per-90 performance metrics, then returns an estimated market value in €M. It also warns when a player's minutes fall below the 900-minute threshold used during model training.
 
 To run locally:
 
