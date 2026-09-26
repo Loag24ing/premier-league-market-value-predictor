@@ -18,6 +18,24 @@ The modelling pipeline was designed to avoid relying on a single season or a ran
 
 ---
 
+## Interactive Streamlit App
+
+The repository includes a Streamlit application in `app.py` that loads the final trained models and provides an interactive market-value estimator.
+
+The app routes predictions through the same final hybrid architecture used in the project:
+
+- **Defenders:** defender-specific XGBoost model
+- **Forwards, midfielders and goalkeepers:** global XGBoost model
+
+To run locally:
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+---
+
 ## Final Result
 
 The final hybrid model was selected using **2024–25 as the validation season** and then evaluated on **2025–26**.
@@ -292,30 +310,26 @@ Player
 ```text
 premier-league-market-value-predictor/
 │
+├── app.py
 ├── README.md
+├── requirements.txt
 ├── notebooks/
 │   └── premier_league_market_value_model.ipynb
-│
 ├── data/
 │   ├── premier_league_market_value_master.csv
 │   └── final_2025_26_predictions.csv
-│
 ├── models/
 │   ├── final_global_model.pkl
 │   └── final_defender_model.pkl
-│
 ├── results/
 │   └── model_comparison.csv
-│
-├── plots/
-│   ├── actual_vs_predicted.png
-│   ├── residual_plot.png
-│   ├── actual_vs_predicted_by_band.png
-│   ├── r2_by_position.png
-│   ├── global_feature_importance.png
-│   └── defender_feature_importance.png
-│
-└── requirements.txt
+└── plots/
+    ├── actual_vs_predicted.png
+    ├── residual_plot.png
+    ├── actual_vs_predicted_by_band.png
+    ├── r2_by_position.png
+    ├── global_feature_importance.png
+    └── defender_feature_importance.png
 ```
 
 ---
@@ -329,6 +343,7 @@ premier-league-market-value-predictor/
 - scikit-learn
 - XGBoost
 - Joblib
+- Streamlit
 - Google Colab
 
 ---
@@ -339,9 +354,8 @@ premier-league-market-value-predictor/
 git clone https://github.com/Loag24ing/premier-league-market-value-predictor.git
 cd premier-league-market-value-predictor
 pip install -r requirements.txt
+streamlit run app.py
 ```
-
-Then open the notebook and run the cells in sequence.
 
 ---
 
@@ -374,7 +388,7 @@ The model also systematically underestimates very high-value players.
 6. Investigate more granular positions.
 7. Try LightGBM or CatBoost.
 8. Use SHAP values for explainability.
-9. Build an interactive Streamlit prediction dashboard.
+9. Add richer scouting context and player comparisons to the Streamlit app.
 10. Test the frozen model on a genuinely unseen future Premier League season.
 
 ---
@@ -392,4 +406,4 @@ on the 2025–26 evaluation season, while analysis showed that the largest remai
 ## Author
 
 **Nirjhar Roy Sarkar**  
-
+Jadavpur University
