@@ -1,0 +1,7 @@
+Model,MAE (€M),RMSE (€M),R²,Evaluation Note
+Linear Regression,12.86,18.7,0.41,2025-26 test
+Log-Target Linear Regression,12.38,18.6,0.417,2025-26 test
+Random Forest,11.42,17.25,0.498,2025-26 test
+Global XGBoost,11.28,17.16,0.504,2025-26 test
+Best Exploratory Position-Specific XGBoost,9.92,15.13,0.614,Exploratory result
+Final Hybrid XGBoost,10.85,16.56,0.537,Validation-selected final architecture
